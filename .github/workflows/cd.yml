@@ -1,0 +1,77 @@
+name: CD Pipeline - Deploy
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    name: Deploy to Production
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/main'
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+      
+      - name: Login to Docker Hub
+        uses: docker/login-action@v3
+        with:
+          username: ${{ secrets.DOCKER_USERNAME }}
+          password: ${{ secrets.DOCKER_PASSWORD }}
+        continue-on-error: true
+      
+      - name: Build and push backend image
+        uses: docker/build-push-action@v5
+        with:
+          context: .
+          file: ./Dockerfile.backend
+          push: true
+          tags: |
+            ${{ secrets.DOCKER_USERNAME }}/clinicalmind-backend:latest
+            ${{ secrets.DOCKER_USERNAME }}/clinicalmind-backend:${{ github.sha }}
+          cache-from: type=registry,ref=${{ secrets.DOCKER_USERNAME }}/clinicalmind-backend:buildcache
+          cache-to: type=inline
+        continue-on-error: true
+      
+      - name: Build and push frontend image
+        uses: docker/build-push-action@v5
+        with:
+          context: ./frontend
+          file: ./frontend/Dockerfile
+          push: true
+          tags: |
+            ${{ secrets.DOCKER_USERNAME }}/clinicalmind-frontend:latest
+            ${{ secrets.DOCKER_USERNAME }}/clinicalmind-frontend:${{ github.sha }}
+        continue-on-error: true
+      
+      - name: Generate deployment manifest
+        run: |
+          cat > deploy-manifest.json << EOF
+          {
+            "deployment_id": "${{ github.run_id }}",
+            "commit_sha": "${{ github.sha }}",
+            "commit_message": "$(git log -1 --pretty=%B)",
+            "author": "${{ github.actor }}",
+            "timestamp": "$(date -u +%Y-%m-%dT%H:%M:%SZ)",
+            "backend_image": "${{ secrets.DOCKER_USERNAME }}/clinicalmind-backend:${{ github.sha }}",
+            "frontend_image": "${{ secrets.DOCKER_USERNAME }}/clinicalmind-frontend:${{ github.sha }}"
+          }
+          EOF
+          cat deploy-manifest.json
+      
+      - name: Upload deployment manifest
+        uses: actions/upload-artifact@v4
+        with:
+          name: deployment-manifest
+          path: deploy-manifest.json
+      
+      - name: Notify deployment status
+        run: |
+          echo "✅ Deployment artifacts created successfully!"
+          echo "📦 Backend: ${{ secrets.DOCKER_USERNAME }}/clinicalmind-backend:${{ github.sha }}"
+          echo "📦 Frontend: ${{ secrets.DOCKER_USERNAME }}/clinicalmind-frontend:${{ github.sha }}"

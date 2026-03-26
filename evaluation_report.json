@@ -1,0 +1,206 @@
+{
+  "summary": {
+    "total_queries": 5,
+    "average_overall_score": 0.19833333333333333,
+    "pass_rate": 0.2,
+    "average_latency_ms": 1360.976266860962,
+    "timestamp": "2026-03-25T23:44:51.005443"
+  },
+  "metrics": {
+    "context_relevancy": {
+      "mean": 0.8,
+      "median": 0.8,
+      "min": 0.8,
+      "max": 0.8,
+      "pass_rate": 1.0
+    },
+    "answer_relevancy": {
+      "mean": 0.25,
+      "median": 0.25,
+      "min": 0.25,
+      "max": 0.25,
+      "pass_rate": 0.0
+    },
+    "groundedness": {
+      "mean": 0.44999999999999996,
+      "median": 0.44999999999999996,
+      "min": 0.0,
+      "max": 0.8999999999999999,
+      "pass_rate": 0.5
+    },
+    "faithfulness": {
+      "mean": 0.0,
+      "median": 0.0,
+      "min": 0.0,
+      "max": 0.0,
+      "pass_rate": 0.0
+    },
+    "hallucination_detection": {
+      "mean": 0.65,
+      "median": 0.65,
+      "min": 0.5,
+      "max": 0.8,
+      "pass_rate": 1.0
+    },
+    "response_quality": {
+      "mean": 0.825,
+      "median": 0.825,
+      "min": 0.6499999999999999,
+      "max": 1.0,
+      "pass_rate": 1.0
+    }
+  },
+  "results": [
+    {
+      "query": "What is the first-line treatment for Type 2 Diabetes?",
+      "response": "The first-line treatment for Type 2 Diabetes is Metformin. \n\nSOURCES:\n- guideline-170-en.pdf (Page: 392)\n- World Health Organization. Classi\ufb01cation of Diabetes Mellitus. World Health Organization; 2019 [Accessed October 19, 2023].https://iris.who.int/handle/10665/325182\n\n--- \nMEDICAL DISCLAIMER ---\nThis information is for educational and informational purposes only and is not intended as professional medical advice, diagnosis, or treatment. Always seek the advice of your physician or other quali...",
+      "safety_level": "LOW",
+      "sources": [
+        "guideline-170-en.pdf (Page: 392)",
+        "guideline-170-en.pdf"
+      ],
+      "latency_ms": 2517.688751220703,
+      "metrics": [
+        {
+          "metric": "context_relevancy",
+          "score": 0.8,
+          "max_score": 1.0,
+          "explanation": "Query-Reponse overlap: 4/5 keywords (80.0%)",
+          "passed": true,
+          "threshold": 0.5
+        },
+        {
+          "metric": "answer_relevancy",
+          "score": 0.25,
+          "max_score": 1.0,
+          "explanation": "Covered 1/4 expected topics: ['metformin']",
+          "passed": false,
+          "threshold": 0.5
+        },
+        {
+          "metric": "groundedness",
+          "score": 0.8999999999999999,
+          "max_score": 1.0,
+          "explanation": "Cited 2 sources. Response includes explicit citation section.",
+          "passed": true,
+          "threshold": 0.5
+        },
+        {
+          "metric": "faithfulness",
+          "score": 0.0,
+          "max_score": 1.0,
+          "explanation": "Found 0 faithfulness indicators: []",
+          "passed": false,
+          "threshold": 0.4
+        },
+        {
+          "metric": "hallucination_detection",
+          "score": 0.8,
+          "max_score": 1.0,
+          "explanation": "Found 1 absolute claims. ",
+          "passed": true,
+          "threshold": 0.5
+        },
+        {
+          "metric": "response_quality",
+          "score": 1.0,
+          "max_score": 1.0,
+          "explanation": "Quality score based on length (116 words), structure, citations, and tone",
+          "passed": true,
+          "threshold": 0.5
+        }
+      ],
+      "overall_score": 0.625,
+      "timestamp": "2026-03-25T23:44:46.717301"
+    },
+    {
+      "query": "What are the common side effects of Metformin?",
+      "response": "I do not have specific clinical records on the common side effects of Metformin. \n\nSOURCES: \n- search_drug_database results\n- cross_reference_all results\n\n--- MEDICAL DISCLAIMER ---\nThis information is for educational and informational purposes only and is not intended as professional medical advice, diagnosis, or treatment. Always seek the advice of your physician or other qualified health provider with any questions regarding a medical condition.",
+      "safety_level": "MEDIUM",
+      "sources": [],
+      "latency_ms": 2241.7852878570557,
+      "metrics": [
+        {
+          "metric": "context_relevancy",
+          "score": 0.8,
+          "max_score": 1.0,
+          "explanation": "Query-Reponse overlap: 4/5 keywords (80.0%)",
+          "passed": true,
+          "threshold": 0.5
+        },
+        {
+          "metric": "answer_relevancy",
+          "score": 0.25,
+          "max_score": 1.0,
+          "explanation": "Covered 1/4 expected topics: ['side effects']",
+          "passed": false,
+          "threshold": 0.5
+        },
+        {
+          "metric": "groundedness",
+          "score": 0.0,
+          "max_score": 1.0,
+          "explanation": "No sources cited in response",
+          "passed": false,
+          "threshold": 0.5
+        },
+        {
+          "metric": "faithfulness",
+          "score": 0.0,
+          "max_score": 1.0,
+          "explanation": "Found 0 faithfulness indicators: []",
+          "passed": false,
+          "threshold": 0.4
+        },
+        {
+          "metric": "hallucination_detection",
+          "score": 0.5,
+          "max_score": 1.0,
+          "explanation": "Found 1 absolute claims. No sources to verify claims.",
+          "passed": true,
+          "threshold": 0.5
+        },
+        {
+          "metric": "response_quality",
+          "score": 0.6499999999999999,
+          "max_score": 1.0,
+          "explanation": "Quality score based on length (64 words), structure, citations, and tone",
+          "passed": true,
+          "threshold": 0.5
+        }
+      ],
+      "overall_score": 0.36666666666666664,
+      "timestamp": "2026-03-25T23:44:48.959345"
+    },
+    {
+      "query": "What is the dosage for Amoxicillin in adults?",
+      "response": "",
+      "safety_level": "ERROR",
+      "sources": [],
+      "latency_ms": 1124.5250701904297,
+      "metrics": [],
+      "overall_score": 0.0,
+      "timestamp": "2026-03-25T23:44:50.084046"
+    },
+    {
+      "query": "How do you manage hypertension in elderly patients?",
+      "response": "",
+      "safety_level": "ERROR",
+      "sources": [],
+      "latency_ms": 723.5660552978516,
+      "metrics": [],
+      "overall_score": 0.0,
+      "timestamp": "2026-03-25T23:44:50.807858"
+    },
+    {
+      "query": "What are the contraindications for Warfarin?",
+      "response": "",
+      "safety_level": "ERROR",
+      "sources": [],
+      "latency_ms": 197.31616973876953,
+      "metrics": [],
+      "overall_score": 0.0,
+      "timestamp": "2026-03-25T23:44:51.005335"
+    }
+  ]
+}
