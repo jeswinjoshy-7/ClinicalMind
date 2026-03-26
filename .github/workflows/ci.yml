@@ -45,6 +45,7 @@ jobs:
       
       - name: Run tests with pytest
         run: |
+          export PYTHONPATH="${{ github.workspace }}:$PYTHONPATH"
           pytest tests/ -v --cov=backend --cov=src --cov-report=xml
         env:
           GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}

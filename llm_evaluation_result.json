@@ -1,0 +1,8 @@
+{
+  "query": "What is the first-line treatment for Type 2 Diabetes?",
+  "response": "The first-line treatment for Type 2 Diabetes is metformin, unless contraindicated or not tolerated, in which case a sulfonylurea may be used.\n\nSOURCES:\n- guideline-170-en.pdf (Page: 392)\n- World Health Organization. Classi\ufb01cation of Diabetes Mellitus. World Health Organization; 2019 [Accessed October 19, 2023].https://iris.who.int/handle/10665/325182\n\n--- \nMEDICAL DISCLAIMER \nThis information is for educational and informational purposes only and is not intended as professional medical advice, d...",
+  "context_length": 948,
+  "results": [
+    {
+      "query": "What is the first-line treatment for Type 2 Diabetes?",
+      "response": 
