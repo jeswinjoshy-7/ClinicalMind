@@ -1,3 +1,8 @@
+<img width="294" height="76" alt="Screenshot From 2026-03-27 14-53-35" src="https://github.com/user-attachments/assets/567cbabe-cdd8-4a3e-bb23-458f60f3ef1b" />
+
+
+
+
 # ClinicalMind: Multi-Agent Clinical Intelligence System
 
 ![CI Pipeline](https://github.com/YOUR_USERNAME/ClinicalMind/actions/workflows/ci.yml/badge.svg)
@@ -43,6 +48,9 @@ Healthcare professionals face significant challenges in accessing and synthesizi
 4. **Lack of Traceability**: Many AI-powered clinical tools provide answers without citing sources, making it difficult for clinicians to verify the accuracy and relevance of the information.
 
 5. **Safety Concerns**: Clinical decision support systems must incorporate safety checks to identify high-risk scenarios and ensure appropriate disclaimers are provided.
+
+<img width="1353" height="942" alt="Screenshot From 2026-03-27 14-52-47" src="https://github.com/user-attachments/assets/dbd768bc-a42b-458f-9dba-c15d8959a675" />
+
 
 ### The ClinicalMind Solution
 
