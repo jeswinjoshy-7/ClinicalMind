@@ -9,7 +9,6 @@
 ![CD Pipeline](https://github.com/YOUR_USERNAME/ClinicalMind/actions/workflows/cd.yml/badge.svg)
 ![Python](https://img.shields.io/badge/Python-3.10+-blue.svg)
 ![Node.js](https://img.shields.io/badge/Node.js-18+-green.svg)
-![License](https://img.shields.io/badge/License-MIT-yellow.svg)
 ![Docker](https://img.shields.io/badge/Docker-Ready-blue.svg)
 
 ClinicalMind is a production-grade, multi-agent Retrieval-Augmented Generation (RAG) system designed to provide evidence-based clinical insights. By leveraging LangGraph orchestration and high-speed Groq LLMs, it integrates clinical guidelines, pharmacological data, and patient history into a unified reasoning framework.
